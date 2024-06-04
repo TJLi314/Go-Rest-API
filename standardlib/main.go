@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"regexp"
 
-	"Standard-Library-Rest-API/recipes"
+	"GoRestAPI/recipes"
 
 	"github.com/gosimple/slug"
 )
@@ -146,7 +146,7 @@ func (h *RecipesHandler) GetRecipe(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *RecipesHandler) UpdateRecipe(w http.ResponseWriter, r *http.Request) {
-	// Extract the resource ID/slug using a regex
+	// Extract the resource ID/slug using mux function
 	matches := RecipeReWithID.FindStringSubmatch(r.URL.Path)
     if len(matches) < 2 {
         InternalServerErrorHandler(w, r)
